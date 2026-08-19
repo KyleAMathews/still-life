@@ -1,0 +1,42 @@
+{
+  "name": "reactive-neon-prototype",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "generate": "node --import tsx scripts/generate.ts",
+    "build": "pnpm generate && tsc -p tsconfig.json && vite build",
+    "test": "pnpm generate && vitest run test",
+    "server": "node --import tsx src/server.ts",
+    "db:setup": "node --import tsx scripts/setup-db.ts",
+    "stack:up": "docker compose up -d --wait",
+    "stack:down": "docker compose down",
+    "test:e2e": "pnpm db:setup && node --import tsx scripts/e2e.ts"
+  },
+  "dependencies": {
+    "@electric-sql/client": "^1.5.26",
+    "@libpg-query/parser": "17.6.10",
+    "@standard-schema/spec": "latest",
+    "@tanstack/db": "latest",
+    "@tanstack/electric-db-collection": "^0.4.0",
+    "@tanstack/react-db": "^0.3.0",
+    "drizzle-orm": "latest",
+    "pg": "^8.23.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.0.5",
+    "tsx": "latest",
+    "typescript": "5.9.3",
+    "vite": "^8.2.1",
+    "vitest": "latest"
+  },
+  "packageManager": "pnpm@10.15.1"
+}
