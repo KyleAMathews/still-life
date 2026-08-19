@@ -1,21 +1,17 @@
 # still-life
 
-An experiment in making ordinary Drizzle queries reactive without turning the
-application into a second database system.
+A prototype for reactive query/mutation system around postgres.
 
 You write named queries and mutations. A compiler turns them into authorized
 Node routes, typed TanStack DB query sources, and optimistic client actions.
-Postgres stays the source of truth.
 
-This repository is an executable sketch of the API and runtime design. The
-todo app proves one path through the system; its small planner is not the
-intended boundary of the idea.
+This repository is an executable sketch of the API and runtime design.
 
-The demo uses Electric to carry changes from Postgres to the browser. Electric
-is an implementation choice here, not the compiler target or a fixed part of
-the design.
+The demo uses Electric to carry changes from Postgres to the browser.
 
-## The DX in one minute
+![The still-life reactive todo demo](./docs/app.jpg)
+
+## DX sketch
 
 Application code lives in one directory. A query is a normal Node handler that
 returns an unexecuted Drizzle builder:
